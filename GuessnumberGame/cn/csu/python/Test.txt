@@ -1,0 +1,6 @@
+Java 
+L
+Use RandomAccessFile to modify file!!
+Linux Unix Hello,spring!!  Fire!!
+Python IO  exercise
+Hello,Python
