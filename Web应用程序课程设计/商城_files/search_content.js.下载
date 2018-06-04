@@ -1,0 +1,130 @@
+/**
+ * Created by yueqiuping on 1/12/17.
+ */
+
+ $('.js-single').append('<div class="single-tips hide">' + messagesWeb.searchResultsPage.single_graph_hints + '</div>')
+ $('.single-tips').fadeIn('normal');
+ $.cookie('recordsinglegraph')&&$('.js-single .single-tips').remove();
+
+// 搜索页吸顶导航********
+ function scrollFixTranslateEffect(){
+    var timer = null;
+    $(window).scroll(function () {
+        if ($(document).scrollTop() >= $('.js-page-aceholder').offset().top) {
+            $('#page-fix-covers').addClass('is-fixed')
+            if ($(document).scrollTop() >= $('#boundary2-cover').offset().top + 40) {
+                $('#page-fix-covers').addClass('is-hidden')
+                clearTimeout(timer)
+                timer = setTimeout(function () { $('#page-fix-covers').addClass('is-visible') }, 100)
+
+            } else {
+                clearTimeout(timer)
+                $('#page-fix-covers').removeClass('is-hidden is-visible')
+            }
+        } else {
+            $('#page-fix-covers').removeClass('is-fixed is-hidden is-visible')
+        }
+    })
+ }
+
+$(function () {
+  asyncAttentionCall($('#recommend_card_list'))
+  $('.select-scroll-box').mCustomScrollbar({theme:"dark"});
+//    $.ajax({
+//        type: "get", 
+//        url: "https://api.zdo.zcool.com.cn/api/apiRecommendData/6",  //要访问的后台地址
+//        dataType: "jsonp",   //返回json格式的数据
+//        jsonp: "callback",
+//        success: function (data) {
+//         var html = '';
+//         $.each(data.data,function(i,v){
+//            var zdoitem = JSON.parse(v)
+//             html += '<li><a href="' + zdoitem.url+'&utm_source=zcool&utm_medium=search&utm_campaign=content' + '" title="' + zdoitem.title + '" target="_blank"><img src="' + zdoitem.listimg + '" alt="' + zdoitem.title + '"></a></li>'
+//         })
+//         $('#recommend_zdo .model-list-box ul').append(html)
+//        }
+//    })
+    var domParent = $('.screening-condition')
+    var domChildren = '.item-field'
+    var domStr = '.condition-result-field'
+
+    var domChildrenType = '.item-type'
+    var domChildrenOther = '.item-other'
+    var domChildrenSort = '.item-sort'
+
+    var domStrType = '.condition-result-type'
+    var domStrOther = '.condition-result-other'
+    var domStrSort = '.condition-result-sort'
+
+    new ShowInfo(domParent, domChildren, domStr).showDom()
+    new ShowInfo(domParent, domChildrenType, domStrType).showDom()
+    new ShowInfo(domParent, domChildrenOther, domStrOther).showDom()
+    new ShowInfo(domParent, domChildrenSort, domStrSort).showDom()
+    var searchLikeSwitch = false;
+        $(window).scroll(function () {
+            if($(document).scrollTop() > $('#footer').offset().top - document.body.clientHeight && searchLikeSwitch == false) {
+                searchLikeSwitch = true;
+                // initRecommend();
+            }
+        })
+    var searchOnclick = function () {
+        var word = $("#search-word").val();
+        var UrlPathName = location.pathname;
+        if(UrlPathName.indexOf('image') != -1){
+            UrlPathName = '/image';
+        }else{
+            UrlPathName = '';
+        }
+        
+        if(word == '' || word == null){
+            return;
+        }
+        location.href = proMainZDomain + "/search" + UrlPathName + "/content?&word=" + word;
+    }
+
+    $('.seek-box-btn,#search-result-btn').on('click', function() {
+        searchOnclick();
+    })
+
+    var keyDownEnterSearch = function () {
+        var flag = true;
+        $("#search-word").on('keydown', function (event) {
+            if(flag && event.keyCode == 13){
+                searchOnclick();
+            }
+        }).on("compositionstart",function(){
+            flag = false;
+        }).on("compositionend",function(){
+            flag = true;
+        })
+    }
+
+    keyDownEnterSearch();
+    $('.js-single').on('click',function(){
+        var locationHref = $(this).find('a').attr('data-href');
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() + 30*24*60*60*1000); 
+        // 记录单图一次提示cokkie
+        document.cookie = "recordsinglegraph=" + escape('fv')+";expires=" + exp.toGMTString() +";path=/;domain="+'.' + zRootDomain;
+        // 记录单图模式跳转cookie
+        document.cookie = "single=" + escape('1')+";expires=" + exp.toGMTString() +";path=/;domain="+'.' + zRootDomain;
+        window.location.href = locationHref;
+    })
+
+    $('.js-card').on('click',function(){
+        var locationHref = $(this).find('a').attr('data-href');
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() + 30*24*60*60*1000);
+        // 记录卡片模式跳转cookie
+        document.cookie = "single=" + escape('0')+";expires=" + exp.toGMTString() +";path=/;domain="+'.' + zRootDomain;
+        window.location.href = locationHref;
+    })
+    // var exp = new Date(); 
+    // exp.setTime(exp.getTime() + 30*24*60*60*1000); 
+    // if(!$('.js-single').length){
+       
+    // }else{
+    //     
+    // }
+
+})

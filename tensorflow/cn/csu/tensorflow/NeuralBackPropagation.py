@@ -6,7 +6,7 @@ import  tensorflow as tf
 #定义变量
 BATCH_SIZE = 10
 SEED=23455
-STEPS=3000
+STEPS=30000
 
 #使用Numpy生成数据集
 rdm=np.random.RandomState(SEED)
@@ -20,8 +20,6 @@ print("Y:",Y,"\n")
 #定义神经网络的输入、输出、参数以及前向传播过程
 x = tf.placeholder(tf.float32,shape=(None,2))
 y_= tf.placeholder(tf.float32,shape=(None,1))
-
-
 
 w1=tf.Variable(tf.random_normal([2,3],stddev=1,seed=1))
 w2=tf.Variable(tf.random_normal([3,1],stddev=1,seed=1))
