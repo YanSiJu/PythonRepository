@@ -65,6 +65,7 @@
  		<if test="type != null">
  		and type = #{type}
  		</if>
+ 		and state = 1
  	</where>
  </update>
  

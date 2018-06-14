@@ -8,6 +8,7 @@
   <select id="queryGoodsPrice" resultType="com.alibaba.entity.GoodsPrice">
 		select goodsId,type,MIN(price),quantity,salesVolume,state
 		from goodsprice
+		where state = 1
 		GROUP BY goodsId
  </select>
  
@@ -21,6 +22,7 @@
 			<if test="type != null">
 			and type = #{type}
 			</if>
+			and state = 1
 		</where>
 	</select>
 	
@@ -30,8 +32,9 @@
 	<select id="queryAllPrices" resultType="com.alibaba.entity.GoodsPrice">
 		select * from goodsprice
 		<where>
+			state = 1
 			<if test="id != null">
-			goodsId = #{id}
+			and goodsId = #{id}
 			</if>
 		</where>
 	</select>

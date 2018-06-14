@@ -257,7 +257,7 @@ h4 {
 <body>
 	<div class="content">
 
-		<input type="hidden" id="quantity" />
+		<input type="hidden" id="quantity" value="${prices[0].quantity}"/>
 		<table class="table">
 			<tr class="tr1">
 
