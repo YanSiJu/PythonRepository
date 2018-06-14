@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.mapper.GoodsMapper">
+
+  <!-- <cache-ref namespace=""/> -->
+  
+  
+  
+  <!-- List<Comment> selectCommentByGoodsId(@Param("goodsId") int goodsId); -->
+	<select id="selectCommentByGoodsId" resultType="com.alibaba.entity.Comment">
+		select * from comment
+		where  goodsId = #{goodsId}
+	</select>
+	
+	
+	 <!-- List<Comment> selectCommentByGoodsIdAndUserId(@Param("goodsId") int goodsId, @Param("userId") int userId);-->
+	<select id="selectCommentByGoodsIdAndUserId" resultType="com.alibaba.entity.Comment">
+		select * from comment
+		<where>
+		 <if test="goodsId != null">
+		 goodsId = #{goodsId}
+		 </if>
+		 <if test="userId != null">
+		 and  userId = #{userId}
+		 </if>
+		</where>
+	</select>
+  
+  <!-- List<Goods> queryGoods()-->
+  <select id="queryGoods" resultType="com.alibaba.entity.Goods">
+		select * from goods
+  </select>
+  
+  <!-- List<Goods> fuzzyQueryGoods(@Param("param") String param) -->
+  <select id="fuzzyQueryGoods" resultType="com.alibaba.entity.Goods">
+		select * from goods
+		<where>
+		 <if test="param != null">
+		 name like concat(concat('%',#{param}),'%')
+		 </if>
+		</where>
+  </select>
+	
+	
+	<!--  List<Goods> queryGoodsById(int id) -->
+	<select id="queryGoodsById" resultType="com.alibaba.entity.Goods">
+		select * from goods
+		<where>
+			<if test="id != null">
+			id = #{id}
+			</if>
+		</where>
+	</select>
+	
+	
+	<!-- void updateSalesVolume(@Param("number") int number, 
+			@Param("type") String type, @Param("goodsId") int goodsId) -->
+ <update id="updateSalesVolume">
+ 	update  goodsprice
+ 	set quantity = quantity -  #{number}
+ 	<where>
+ 		<if test="goodsId != null">
+ 		goodsId = #{goodsId}
+ 		</if>
+ 		<if test="type != null">
+ 		and type = #{type}
+ 		</if>
+ 	</where>
+ </update>
+ 
+ 
+ <!-- void insertComment(Comment c); -->
+	<insert id="insertComment">
+		INSERT INTO `comment`(userId,goodsId,content)
+		VALUES (#{userId}, #{goodsId},#{content})
+	</insert>
+	
+</mapper>

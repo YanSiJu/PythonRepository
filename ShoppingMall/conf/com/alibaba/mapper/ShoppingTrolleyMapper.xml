@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.alibaba.mapper.ShoppingTrolleyMapper">
+
+ 
+ 
+ <!--  void createShoppingTrolley(ShoppingTrolley trolley) -->
+ <insert id="createShoppingTrolley">
+ INSERT INTO `shoppingtrolley`(userid) VALUES (#{userId})
+ </insert>
+ 
+ <!-- void insertGoods(goodsInShoppingtrolley trolley) -->
+ <insert id="insertGoods">
+ INSERT INTO `goodsinshoppingtrolley`(shoppingtrolleyId,goodsId,quantity,amount,type,batteryCapacity,frontFacingCamera,rearCamera) 
+ VALUES (#{shoppingtrolleyId},#{goodsId},#{quantity},#{amount},#{type},#{batteryCapacity},#{frontFacingCamera},#{rearCamera})
+ </insert>
+ 
+ 
+ <!-- List<ShoppingTrolley> queryShoppingTrolley(@Param("userId") int userId) -->
+ <select id="queryShoppingTrolley"  resultType="com.alibaba.entity.ShoppingTrolley">
+ 		select * from shoppingtrolley
+ 		<where>
+		 <if test="userId != null">
+		 	userId = #{userId}
+		 </if>
+		</where>
+ </select>
+ 
+ 
+ <!-- List<goodsInShoppingtrolley> queryTrolleyByTrolleyId(@Param("trolleyId") int trolleyId); -->
+ <select id="queryTrolleyByTrolleyId"  resultType="com.alibaba.entity.goodsInShoppingtrolley">
+ 		select * from goodsinshoppingtrolley
+ 		<where>
+		 <if test="trolleyId != null">
+		 	shoppingTrolleyId = #{trolleyId}
+		 </if>
+		</where>
+ </select>
+ 
+ 
+ <!-- List<goodsInShoppingtrolley> queryShoppingTrolleyByPK(@Param("goodsId") int goodsId,@Param("shoppingtrolleyId") int shoppingtrolleyId) -->
+ <select id="queryShoppingTrolleyByPK"  resultType="com.alibaba.entity.goodsInShoppingtrolley">
+ 		select * from goodsinshoppingtrolley
+ 		<where>
+		 <if test="goodsId != null">
+		 	goodsId = #{goodsId}
+		 </if>
+		 <if test="shoppingtrolleyId != null">
+		 	and shoppingtrolleyId = #{shoppingtrolleyId}
+		 </if>
+		</where>
+ </select>
+ 
+ 
+ <!-- void updateGoods(goodsInShoppingtrolley trolley) -->
+ <update id="updateGoods">
+ 	update  goodsinshoppingtrolley
+ 	set quantity = #{quantity},
+ 	amount = #{amount}
+ 	<where>
+ 		<if test="shoppingtrolleyId != null">
+ 		shoppingtrolleyId = #{shoppingtrolleyId}
+ 		</if>
+ 		<if test="goodsId!= null">
+ 		and goodsId = #{goodsId}
+ 		</if>
+ 	</where>
+ </update>
+ 
+ 
+ <!-- void updateGoodsQuantity(@Param("number") int number, @Param("amount") double amount,
+			@Param("shoppingtrolleyId") int shoppingtrolleyId,  @Param("goodsId") int goodsId); -->
+ <update id="updateGoodsQuantity">
+ 	update  goodsinshoppingtrolley
+ 	set quantity = quantity + #{number},
+ 	amount = amount + #{amount}
+ 	<where>
+ 		<if test="shoppingtrolleyId != null">
+ 		shoppingtrolleyId = #{shoppingtrolleyId}
+ 		</if>
+ 		<if test="goodsId!= null">
+ 		and goodsId = #{goodsId}
+ 		</if>
+ 	</where>
+ </update>
+ 
+ 
+ <!-- void update(@Param("number") int number, @Param("amount") double amount,
+			@Param("shoppingtrolleyId") int shoppingtrolleyId,  @Param("goodsId") int goodsId);-->
+ <update id="update">
+ 	update  goodsinshoppingtrolley
+ 	set quantity =  #{number},
+ 	amount = #{amount}
+ 	<where>
+ 		<if test="shoppingtrolleyId != null">
+ 		shoppingtrolleyId = #{shoppingtrolleyId}
+ 		</if>
+ 		<if test="goodsId!= null">
+ 		and goodsId = #{goodsId}
+ 		</if>
+ 	</where>
+ </update>
+ 
+ 
+ <!-- void deleteGoods(@Param("goodsId") int goodsId, @Param("shoppingtrolleyId") int shoppingtrolleyId) -->
+ <delete id="deleteGoods">
+ 	delete from goodsinshoppingtrolley
+ 	<where>
+ 		<if test="shoppingtrolleyId != null">
+ 		shoppingtrolleyId = #{shoppingtrolleyId}
+ 		</if>
+ 		<if test="goodsId!= null">
+ 		and goodsId = #{goodsId}
+ 		</if>
+ 	</where>
+ </delete>
+ 
+ 	
+</mapper>

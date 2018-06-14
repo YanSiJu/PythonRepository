@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.alibaba.mapper.OrderMapper">
+
+  <!-- <cache-ref namespace=""/> -->
+  
+  <!-- void insertOrder(Order o) -->
+  <insert id="insertOrder">
+  	INSERT INTO `order`(orderId,time,address,name,amount,userId)
+	 VALUES (#{orderId},#{time},#{address},#{name},#{amount},#{userId})
+  </insert>
+  
+  <!-- List<Order> selectOrderById(@Param("id")int id) -->
+	<select id="selectOrderById" resultType="com.alibaba.entity.Order">
+		select * from `order`
+		where orderId = #{id}
+	</select>
+  
+  
+  <!-- void insertGoods(GoodsInOrder goods) -->
+  <insert id="insertGoods">
+  	INSERT INTO `goodsinorder`(orderId,goodsId,quantity,amount,batteryCapacity,frontFacingCamera,rearCamera,type)
+	 VALUES (#{orderId},#{goodsId},#{quantity},#{amount},#{batteryCapacity},#{frontFacingCamera},#{rearCamera},#{type})
+  </insert>
+  
+  
+</mapper>

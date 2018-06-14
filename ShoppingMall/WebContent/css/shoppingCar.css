@@ -1,0 +1,165 @@
+@CHARSET "UTF-8";
+
+.content {
+	font-family: sans-serif;
+	width: 105%;
+	/* height: 20%; */
+}
+
+.indexSrc {
+	width: 20px;
+	height: 20px;
+}
+
+.addressSrc {
+	width: 13px;
+	height: 18px;
+}
+
+.table {
+	height: 40px;
+	/* width: 1000px; */
+	width: 105%;
+	border:0;
+	background-color: #C0C0C0;
+	color: #808080;
+}
+
+.first {
+	width: 120px;
+}
+
+.second {
+	width: 640px;
+}
+
+.third {
+	text-align: center;
+	
+}
+
+.shoppingCar {
+	height: 60px;
+	width: 60px;
+}
+
+.big {
+	font-family: sans-serif;
+	font-size: xx-large;
+	color: #CC0000;
+}
+
+.td1 {
+	width: 70px;
+}
+
+.table1 {
+	height: 100px;
+	/* width: 950px; */
+	margin-left: 50px;
+}
+
+.huawei {
+	width: 400px;
+	height: 150px;
+}
+
+.table2 {
+	/* width: 1000px; */
+	height: 30px;
+	background-color: #E0E0E0;
+}
+
+.tr2 {
+	margin-top: 80px;
+	margin-left: 100px;
+}
+
+.tdg {
+	width: 39%;
+	text-align: center;
+}
+
+.td {
+	width: 100px;
+	text-align: center;
+}
+
+.td2 {
+	width: 100px;
+}
+
+.check{
+	
+	width:70px;
+	
+}
+
+.phone {
+	width: 70px;
+	height: 120px;
+}
+
+
+.picture {
+	width: 80px;
+}
+
+
+.intro {
+	font-size:small;
+	width: 215px;
+	color: #272727;
+}
+
+.version {
+	width: 150px;
+	text-align: center;
+	color: #4F4F4F;
+	font-size: small;
+}
+
+
+.price {
+	width:85px;
+	font-size: medium;
+	color: #272727;
+}
+
+.count {
+	width:80px;
+	text-align: center;
+}
+
+.finalPrice{
+	
+	width:100px;
+	text-align: center;
+}
+
+.delete{
+	text-align: center;
+	width:50px;
+	
+}
+
+
+.button{
+	
+	width:110px;
+	height:50px;
+	border:0;
+	background-color: red;
+	color:white;
+	margin-left:30px;
+	font-size: large;
+	float:right;
+	
+}
+
+.imp{
+	
+	color:red;
+	
+	
+}

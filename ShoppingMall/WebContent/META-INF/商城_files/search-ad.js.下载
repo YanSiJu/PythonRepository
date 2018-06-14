@@ -1,0 +1,30 @@
+var searchAd = function(){
+    var ajaxAd = $.ajax({
+        type: "get",
+        url: proMainZDomain + "/ad/update?word=" + $('#search-word').val(),
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        traditional: true,
+        dataType:"json",
+        success: function(data) {
+            
+        },
+        error:function(){
+            console.debug('ad/update fail');
+        }
+    })
+}
+
+if(typeof searchAd == 'function'){
+searchAd()
+}
+
+if($('#ad2').length && $('.ad-cover-img img').width() < $('#ad2').width()){
+	
+    $('.ad_card_type01 #ad2 .ad-cover-img').addClass('jr-size')
+}

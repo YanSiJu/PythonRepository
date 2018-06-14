@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.mapper.UserMapper">
+
+	<!--  User selectUserByName(String userName) -->
+	<select id="selectUserByName" resultType="com.alibaba.entity.User">
+		select * from user
+		where  userName = #{userName}
+	</select>
+	
+	
+	<!-- public void insertUser(User user) -->
+	<insert id="insertUser">
+		INSERT INTO `user`(tel,userName,password,address,name)
+		VALUES (#{tel},#{userName}, #{password}, #{address},#{name})
+	</insert>
+	
+</mapper>

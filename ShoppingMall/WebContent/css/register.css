@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+ .register{
+ 	font-family:sans-serif;
+ 	width:900px;
+ 	height:1200px;
+ 	background-color: #F0FFFF;
+ }
+
+ h1{
+ 	text-align:center;
+ 
+ }
+ 
+ h4{
+ 	text-align:right;
+ 
+ }
+ 
+ 
+ .td{
+ 	width:260px;
+ 
+ }
+ .td2{
+ 	text-align:left;
+ 
+ }
+ 
+/* .regist{
+	margin-left:75px;
+	text-align:center;
+	width:150px;
+	height:40px;
+	background-color:#99CCFF;
+	border: 0;
+	color:#FFFFFF;
+	
+} */
+
+ .blank{
+ 	height:300px;
+ 	width:200px;
+ 
+ }

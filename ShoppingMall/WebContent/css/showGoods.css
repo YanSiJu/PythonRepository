@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+.content{
+ 	font-family: sans-serif;
+	width: 1000px;
+	height: 800px;
+	background-color:white;
+
+ }
+
+.right{
+	margin-left:550px;
+	color:white;
+}
+.index{
+	color:white;
+	margin-left:20px;
+	
+}
+
+.table{
+	
+	border:0;
+	
+}
+
+.href{
+	
+	color:white;
+	
+}
+
+.imgSrc{
+	height:400px;
+	width:220px;
+	margin-left: 50px;
+	margin-right:60px;
+	
+}
+
+.tr1{
+	background-color:#FF5151;
+	border-color: #F0F0F0;
+	color:white;
+	height:30px;
+	border:0;
+	}
+
+.tr2{
+	height:500px;
+	margin-left:60px;
+}
+
+h4{
+	
+	margin-left: 60px;
+	text-align:center;
+	
+}
+
+
+.price{
+	
+	color:#FF0000;
+	
+}
+
+.back{
+	
+	background-color:#F0F0F0;
+	
+}
+
+.button{
+	
+	width:130px;
+	height:50px;
+	border:0;
+	background-color: red;
+	color:white;
+	margin-left:50px;
+	font-size: large;
+	
+}
+
+.color{
+	
+	margin-left:10px;
+	width:100px;
+	height:30px;
+	border-color:#F0F0F0;
+	background-color: #F0F0F0;
+	border:0;
+}
+
+.techNum{
+	height:30px;
+	width:1000px;
+	background-color: #F0F0F0;
+	
+}
+
+.in{
+	
+	height:30px;
+	width:90px;
+	background-color:#F5DEB3;
+	color:black;
+	text-align:center;
+}
+
+.table2{
+	
+	border:0;
+	
+}
+
+.t{
+	
+	width:300px;
+	
+}
+
+
+.userHead {
+	height: 80px;
+	width: 80px;
+}
+
+.comment {
+	width: 600px;
+}
+
+.commentTable {
+	margin-left: 20px;
+}
+
+.pic {
+	width: 200px;
+}

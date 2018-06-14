@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="com.alibaba.mapper.GoodsPriceMapper">
+  
+  <!-- <cache-ref namespace=""/> -->
+ 
+ <!-- public List<GoodsPrice> queryGoodsPrice() -->
+  <select id="queryGoodsPrice" resultType="com.alibaba.entity.GoodsPrice">
+		select goodsId,type,MIN(price),quantity,salesVolume,state
+		from goodsprice
+		GROUP BY goodsId
+ </select>
+ 
+ <!--  List<GoodsPrice> queryPricesByIdAndType(@Param("id") int id, @Param("type") String type) -->
+	<select id="queryPricesByIdAndType" resultType="com.alibaba.entity.GoodsPrice">
+		select * from goodsprice
+		<where>
+			<if test="id != null">
+			goodsId = #{id}
+			</if>
+			<if test="type != null">
+			and type = #{type}
+			</if>
+		</where>
+	</select>
+	
+	
+	
+	<!--  List<GoodsImg> queryAllPrices(int id) -->
+	<select id="queryAllPrices" resultType="com.alibaba.entity.GoodsPrice">
+		select * from goodsprice
+		<where>
+			<if test="id != null">
+			goodsId = #{id}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

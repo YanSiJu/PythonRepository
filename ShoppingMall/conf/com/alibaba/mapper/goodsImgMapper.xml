@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper  namespace="com.alibaba.mapper.GoodsImgMapper">
+  <!-- <cache-ref namespace=""/> -->
+  
+  
+  
+  <select id="queryGoodsImg" resultType="com.alibaba.entity.GoodsImg">
+		select * from goodsimg
+	</select>
+	
+	<!--  List<GoodsImg> queryAllImg(int id) -->
+	<select id="queryAllImg" resultType="com.alibaba.entity.GoodsImg">
+		select * from goodsimg
+		<where>
+			<if test="id != null">
+			goodsId = #{id}
+			</if>
+		</where>
+	</select>
+	
+	
+</mapper>
