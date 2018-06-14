@@ -16,18 +16,22 @@ public class OrderController {
 
 	@Autowired
 	private OrderServiceImpl service;
-	
+
 	@RequestMapping("order")
-	public String order(HttpServletRequest request, @RequestParam("price") double price,
-			@RequestParam("type") String type, @RequestParam("color") String color, @RequestParam("number") int number,
-			@RequestParam("rear") String rear, @RequestParam("front") String front,
-			@RequestParam("capacity") String capacity, @RequestParam("goodsId") int goodsId) {
+	public String order(HttpServletRequest request, @RequestParam(value = "price", required = false) double price,
+			@RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "color", required = false) String color,
+			@RequestParam(value = "number", required = false) int number,
+			@RequestParam(value = "rear", required = false) String rear,
+			@RequestParam(value = "front", required = false) String front,
+			@RequestParam(value = "capacity", required = false) String capacity,
+			@RequestParam(value = "goodsId", required = false) int goodsId) {
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unused")
 		User user = (User) session.getAttribute("user");
-//		if(user == null) {
-//			return "login";
-//		}
+		// if(user == null) {
+		// return "login";
+		// }
 		session.setAttribute("number", number);
 		session.setAttribute("color", color);
 		session.setAttribute("type", type);
@@ -51,15 +55,7 @@ public class OrderController {
 		String rear = (String) session.getAttribute("rear");
 		String capacity = (String) session.getAttribute("capacity");
 		int goodsId = (int) session.getAttribute("goodsId");
-		service.createOrder(price, type, color, number, rear, front, capacity, user,goodsId);
+		service.createOrder(price, type, color, number, rear, front, capacity, user, goodsId);
 		return "";
 	}
 }
-
-/*
- * System.out.println("user:" + user); System.out.println("capacity:" +
- * capacity); System.out.println("front:" + front); System.out.println("rear:" +
- * rear); System.out.println("type:" + type); System.out.println("price:" +
- * price); System.out.println("color:" + color); System.out.println("number:" +
- * number);
- */

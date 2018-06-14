@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50637
 File Encoding         : 65001
 
-Date: 2018-06-14 08:50:36
+Date: 2018-06-14 10:49:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,16 +34,14 @@ CREATE TABLE `comment` (
 -- ----------------------------
 INSERT INTO `comment` VALUES ('110010', '1', '&lt;script&gt;$(\"body\").remove();&lt;/script&gt;\n');
 INSERT INTO `comment` VALUES ('110010', '2', '<script>alert(\"XSS atack\");</script>');
-INSERT INTO `comment` VALUES ('110003', '3', '大爱荣耀，永远支持华为');
-INSERT INTO `comment` VALUES ('110002', '4', '华为就是赞，支持国产');
-INSERT INTO `comment` VALUES ('110000', '5', '果然便宜没好货，债见');
+INSERT INTO `comment` VALUES ('110014', '5', '\n京东送货很快手机很快收到了 这个手机的指纹和人脸识别给我印象很深 手碰下立马打开屏幕 真的特别快 这个是我见过指纹最快的手机了 特别是全面屏还能做到正面指纹人脸识别的速度也是相当的快 一抬手就打开了 还有一个我要重点说 这个手机是可以双卡同时4G的 这个可以让两个卡信号都好 毕竟很多地方2g信号不如4g 对比我的华为p9可以看得到华为这几年的进步还是非常巨大的 体验有了非常明显的提升');
 INSERT INTO `comment` VALUES ('110010', '7', '&lt;script&gt;$(\"body\").remove();&lt;/script&gt;\n');
-INSERT INTO `comment` VALUES ('110004', '10', '买了这部手机，我要吃土了，但愿好用');
 INSERT INTO `comment` VALUES ('110010', '11', '华为,,......很不错');
-INSERT INTO `comment` VALUES ('110001', '12', '华为手机一如既往的好用，下次再来');
 INSERT INTO `comment` VALUES ('110010', '13', '&lt;script&gt;$(\"body\").remove();&lt;/script&gt;\n');
 INSERT INTO `comment` VALUES ('110010', '30', '好用极了，下次买手机依旧买华为！');
+INSERT INTO `comment` VALUES ('110014', '30', '用了一周了，当时准备买V9的，可这款手机，真的，太吸引人了，我痛下心买了它，没让我失望，很好，外观真的很很好看，手感就不说了，超级赞的，支持京东自营');
 INSERT INTO `comment` VALUES ('110010', '31', '安卓机最爱华为');
+INSERT INTO `comment` VALUES ('110014', '31', '\n先去实体店看了下这款手机，红色的确实挺惊艳的！但是店里面128G的比京东要贵点，吓得我掉头就走了，回来在京东上看了看，然后才决定买4+64的，个人感觉够用了，手机到手后手感真的好，也很顺手，完全OK，用段时间再来追评吧。对了，我是男的，用红色贼骚！?');
 
 -- ----------------------------
 -- Table structure for goods
@@ -172,8 +170,10 @@ CREATE TABLE `goodsinorder` (
 INSERT INTO `goodsinorder` VALUES ('174310', '2', '1', '2388', '3000mAh-3999mAh', '800-1599万像素', '1200-1999万像素', '4G+64G');
 INSERT INTO `goodsinorder` VALUES ('524910', '3', '16', '41584', '3000mAh-3999mAh', '2400万像素', '2400+1600万像素', '6G+64G');
 INSERT INTO `goodsinorder` VALUES ('565410', '3', '1', '2999', '3000mAh-3999mAh', '2400万像素', '2400+1600万像素', '6G+128G');
+INSERT INTO `goodsinorder` VALUES ('284715', '6', '4', '7196', '3000mAh-3999mAh', '1300+200万像素', '1600+200万像素', '4G+64G');
 INSERT INTO `goodsinorder` VALUES ('103810', '31', '1', '699', '3000mAh-3999mAh', '800万', '200万像素；1200万像', '2G+16G');
 INSERT INTO `goodsinorder` VALUES ('222810', '31', '3', '2097', '3000mAh-3999mAh', '800万', '200万像素；1200万像', '2G+16G');
+INSERT INTO `goodsinorder` VALUES ('271015', '31', '2', '1398', '3000mAh-3999mAh', '800万', '200万像素；1200万像', '2G+16G');
 
 -- ----------------------------
 -- Table structure for goodsinshoppingtrolley
@@ -196,6 +196,10 @@ CREATE TABLE `goodsinshoppingtrolley` (
 -- ----------------------------
 INSERT INTO `goodsinshoppingtrolley` VALUES ('2208', '3', '12', '33988', '6G+128G', '3000mAh-3999mAh', '2400万像素', '2400+1600万像素');
 INSERT INTO `goodsinshoppingtrolley` VALUES ('2208', '30', '6', '5394', '3G+32G', '3000mAh-3999mAh', '800万', '200万像素；1200万像');
+INSERT INTO `goodsinshoppingtrolley` VALUES ('2212', '13', '5', '26440', '6G+64G', '4000mAh-5999mAh', '2400万像素', '2000+4000+800万像素');
+INSERT INTO `goodsinshoppingtrolley` VALUES ('2212', '28', '5', '2995', '2G+16G', '3000mAh-3999mAh', '500万-799万', '1200万-1999万');
+INSERT INTO `goodsinshoppingtrolley` VALUES ('2212', '31', '4', '2796', '2G+16G', '3000mAh-3999mAh', '800万', '200万像素；1200万像');
+INSERT INTO `goodsinshoppingtrolley` VALUES ('2213', '31', '2', '1398', '2G+16G', '3000mAh-3999mAh', '800万', '200万像素；1200万像');
 
 -- ----------------------------
 -- Table structure for goodsprice
@@ -275,6 +279,8 @@ CREATE TABLE `order` (
 INSERT INTO `order` VALUES ('103810', '2018-06-12 09:10:39', '京城', '李白', '699', '110010');
 INSERT INTO `order` VALUES ('174310', '2018-06-12 09:17:43', '京城', '李白', '2388', '110010');
 INSERT INTO `order` VALUES ('222810', '2018-06-11 21:22:29', '京城', '李白', '2097', '110010');
+INSERT INTO `order` VALUES ('271015', '2018-06-14 10:27:10', '湖南省长沙市麓谷企业广场A4', 'rm-rf', '1398', '110015');
+INSERT INTO `order` VALUES ('284715', '2018-06-14 10:28:47', '湖南省长沙市麓谷企业广场A4', 'rm-rf', '7196', '110015');
 INSERT INTO `order` VALUES ('524910', '2018-06-13 20:52:49', '京城', '李白', '41584', '110010');
 INSERT INTO `order` VALUES ('565410', '2018-06-13 20:56:54', '京城', '李白', '2999', '110010');
 
@@ -332,20 +338,16 @@ CREATE TABLE `shoppingtrolley` (
   PRIMARY KEY (`id`),
   KEY `fk_shoppingTrolley_userId` (`userId`),
   CONSTRAINT `fk_shoppingTrolley_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2210 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2214 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shoppingtrolley
 -- ----------------------------
-INSERT INTO `shoppingtrolley` VALUES ('2200', '110000');
-INSERT INTO `shoppingtrolley` VALUES ('2201', '110001');
-INSERT INTO `shoppingtrolley` VALUES ('2202', '110002');
-INSERT INTO `shoppingtrolley` VALUES ('2203', '110003');
-INSERT INTO `shoppingtrolley` VALUES ('2204', '110004');
-INSERT INTO `shoppingtrolley` VALUES ('2205', '110006');
-INSERT INTO `shoppingtrolley` VALUES ('2206', '110008');
 INSERT INTO `shoppingtrolley` VALUES ('2208', '110010');
-INSERT INTO `shoppingtrolley` VALUES ('2209', '110011');
+INSERT INTO `shoppingtrolley` VALUES ('2210', '110012');
+INSERT INTO `shoppingtrolley` VALUES ('2211', '110013');
+INSERT INTO `shoppingtrolley` VALUES ('2212', '110014');
+INSERT INTO `shoppingtrolley` VALUES ('2213', '110015');
 
 -- ----------------------------
 -- Table structure for user
@@ -360,18 +362,13 @@ CREATE TABLE `user` (
   `name` varchar(18) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `userName_unique` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=110012 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110016 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('110000', '152962765', 'Nick', 'Nick0521', '湖北省武汉市', '王超');
-INSERT INTO `user` VALUES ('110001', '1378523965', 'Bill', 'Bill9625@', '湖南省长沙市', '王强');
-INSERT INTO `user` VALUES ('110002', '13882569481', 'rm-rf', '81226#', '湖南省长沙市麓谷企业广场A4', '刘涛');
-INSERT INTO `user` VALUES ('110003', '13596478525', 'Jeff', '594dongge', '深圳市南山科技园', '温涛');
-INSERT INTO `user` VALUES ('110004', '1595364785', 'Donals.J.Trump', '0614#', '南京市紫金山中山陵', '唐纳德·孙文');
-INSERT INTO `user` VALUES ('110006', '15580759612', 'Gates', '$2a$10$nY0OLPv3ePRMIWlD7umiHuxkiUuIZabrzv46E/htB.Tuz1OubLzK6', '广东省广州市沙面岛', 'Trump');
-INSERT INTO `user` VALUES ('110008', '18596123675', 'Jobs.', '$2a$10$eL2wNL1RBBI7lY8qfp0qDuI.dSCeu8TGCliaBEXT0Luut3HZR2.0S', '深圳市南山科技园', '胡涛');
-INSERT INTO `user` VALUES ('110009', '15296018574', 'Jack', '$2a$10$cSxtA3Ut49tH1p81GwyJNuj1W4u4FE1Uo9PeEV3Njy16hnQxwicrG', '河北省雄安新区', '江东');
 INSERT INTO `user` VALUES ('110010', '19675253815', 'Jeckie', '$2a$10$JK1tFS.4jZ99.c.yY82xxumhdPqxqlMDQC7UouMGYWi70aOwh1Dre', '京城', '李白');
-INSERT INTO `user` VALUES ('110011', '13596031574', 'Nancy', '$2a$10$H6jZ9WxwwT3gtz/eiexwx.kftAxuGkeTTSsJwggHQGWTvJWf89ujK', ' BuckinghamPalace', '威廉王子');
+INSERT INTO `user` VALUES ('110012', '15580759612', 'William', '$2a$10$l02NbHSNxgG4NF6Ny5ujR..BwlD/5739gzBXkGHWREu3sx4xxELni', '大不列颠日不落帝国白金汉宫', '威廉王子');
+INSERT INTO `user` VALUES ('110013', '15296035874', 'Marvin', '$2a$10$loyunixQgQmQYU3XzYql/eKFG0pD2Lieymp8n8i0NVIp7AJzdSUo2', '重庆市渣滓洞', '白驹');
+INSERT INTO `user` VALUES ('110014', '15896250374', 'Jack', '$2a$10$1FKn4yP1PZAMC2dkeOoTdOBZgA0F2tj7Q8mQu43/Pxc8Uahr3d3.W', '河北雄安新区', 'Jack');
+INSERT INTO `user` VALUES ('110015', '15583697215', 'rm-rf', '$2a$10$v0ydJ2LST04jcFe.mZ0Eouzgx0qyMdwjoya2VGKa0PW0wqr8lpSim', '湖南省长沙市麓谷企业广场A4', 'rm-rf');

@@ -24,10 +24,14 @@ public class ShoppingtrolleyController {
 	private ShoppingtrolleyServiceImpl service;
 
 	@RequestMapping("addGoods")
-	public String addGoods(HttpServletRequest request, @RequestParam("price") double price,
-			@RequestParam("type") String type, @RequestParam("color") String color, @RequestParam("number") int number,
-			@RequestParam("rear") String rear, @RequestParam("front") String front,
-			@RequestParam("capacity") String capacity, @RequestParam("goodsId") int goodsId) {
+	public String addGoods(HttpServletRequest request, @RequestParam(value = "price", required = false) double price,
+			@RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "color", required = false) String color,
+			@RequestParam(value = "number", required = false) int number,
+			@RequestParam(value = "rear", required = false) String rear,
+			@RequestParam(value = "front", required = false) String front,
+			@RequestParam(value = "capacity", required = false) String capacity,
+			@RequestParam(value = "goodsId", required = false) int goodsId) {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
@@ -37,27 +41,14 @@ public class ShoppingtrolleyController {
 			// System.out.print("\n\n\n加购物车ing... 购物车id:" + shoppingtrolleyId + "\n\n");
 			service.addGoods(price, goodsId, number, shoppingtrolleyId, rear, front, capacity, type);
 		}
-		// int shoppingtrolleyId = 0;
-		// @SuppressWarnings("unchecked")
-		// List<goodsInShoppingtrolley> trolley = (List<goodsInShoppingtrolley>) session
-		// .getAttribute("shoppingtrolley");
-		// if (trolley == null) {
-		// trolley = new LinkedList<goodsInShoppingtrolley>();
-		//
-		// goodsInShoppingtrolley goods = new goodsInShoppingtrolley(shoppingtrolleyId,
-		// goodsId, type, capacity,
-		// front, rear, number, number * price);
-		// trolley.add(goods);
-		//
-		// } else {
-		// goodsInShoppingtrolley goods = new goodsInShoppingtrolley(shoppingtrolleyId,
-		// goodsId, type, capacity,
-		// front, rear, number, number * price);
-		// trolley.add(goods);
-		// }
-		// session.setAttribute("shoppingtrolley", trolley);
-
-		return "";
+		request.setAttribute("type", type);
+		request.setAttribute("color", color);
+		request.setAttribute("rear", rear);
+		request.setAttribute("front", front);
+		request.setAttribute("capacity", capacity);
+		request.setAttribute("number", number);
+		request.setAttribute("goodsId", goodsId);
+		return "inform";
 	}
 
 	@RequestMapping("queryTrolleyInfo")
@@ -114,11 +105,11 @@ public class ShoppingtrolleyController {
 			int trolleyId = (int) jsonObj.get("trolleyId");
 			int price = (int) jsonObj.get("price");
 
-//			System.out.println("\n\n\ntrolleyId:" + trolleyId);
-//			System.out.println("\n\n\ngoodsId:" + goodsId);
-//			System.out.println("\n\n\nnumber:" + number);
-//			System.out.println("\n\n\nprice:" + price);
-//			System.out.println("\n\n\ngoodsId:" + trolleyId);
+			// System.out.println("\n\n\ntrolleyId:" + trolleyId);
+			// System.out.println("\n\n\ngoodsId:" + goodsId);
+			// System.out.println("\n\n\nnumber:" + number);
+			// System.out.println("\n\n\nprice:" + price);
+			// System.out.println("\n\n\ngoodsId:" + trolleyId);
 
 			service.modifyGoodsQuantity(number, price * number, trolleyId, goodsId);
 			map.put("msg", "OK");
@@ -128,25 +119,5 @@ public class ShoppingtrolleyController {
 		}
 		return map;
 	}
-
-	// @RequestMapping("deleteGoods")
-	// @ResponseBody
-	// public Map<String, String> deleteGoods(@RequestBody String data,
-	// HttpServletRequest request) {
-	// HttpSession session = request.getSession();
-	// JSONObject jsonObj;
-	// Map<String, String> map = new HashMap<>();
-	// try {
-	// jsonObj = new JSONObject(data);
-	// int goodsId = Integer.valueOf(jsonObj.get("goodsId").toString());
-	// int shoppingtrolleyId = (Integer) session.getAttribute("shoppingtrolleyId");
-	// service.deleteGoods(goodsId, shoppingtrolleyId);
-	// map.put("msg", "OK");
-	// } catch (JSONException e) {
-	// e.printStackTrace();
-	// map.put("msg", "error");
-	// }
-	// return map;
-	// }
 
 }

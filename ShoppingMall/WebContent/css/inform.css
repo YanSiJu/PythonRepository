@@ -1,0 +1,155 @@
+@CHARSET "UTF-8";
+
+
+.content {
+	font-family: sans-serif;
+	width: 1000px;
+	height: 800px;
+}
+
+.indexSrc {
+	width: 20px;
+	height: 20px;
+}
+
+.addressSrc {
+	width: 13px;
+	height: 18px;
+}
+
+.table {
+	height: 40px;
+	width: 1000px;
+	border:0;
+	background-color: white;
+	color: #808080;
+}
+
+.first {
+	width: 120px;
+}
+
+.second {
+	width: 150px;
+	text-align:center;
+}
+
+.third {
+	text-align: left;
+}
+
+.forth{
+	
+	text-align: right;
+	
+}
+
+.img{
+	
+	width:360px;
+	height:220px;
+	
+}
+
+.submit{
+	
+	width:130px;
+	height:45px;
+	background-color: #F0F0F0;
+	color:red;
+	border:0;
+	border-color:#F0F0F0;
+	font-size:large;
+}
+
+
+.td{
+	
+	width:800px;
+	
+}
+
+.hr{
+	
+	border-color: red;
+	height:3px;
+	background-color: red;
+	
+}
+
+.true{
+	
+	width:30px;
+	height:30px;
+	
+}
+
+.h3{
+	
+	color:#33CC66;
+}
+
+.blue{
+	
+	width:70px;
+	height:120px;
+	
+}
+
+.td1{
+	width:90px;
+	text-align:center;
+	
+}
+
+.lastTable{
+	width:1000px;
+	height:160px;
+	border:1;
+	border-color: #F0F0F0;
+	background-color: #F0F0F0;
+	
+}
+
+.td2{
+	
+	
+	width:520px;
+}
+
+.td3{
+	
+	width:150px;
+	text-align:center;
+	
+}
+
+p{
+	
+	font-size:small;
+	color:#888888 ;
+	
+}
+
+.submit1{
+	
+	background-color: white;
+	color:red;
+	width:120px;
+	height:40px;
+	border:0;
+	font-size:medium;
+	
+}
+
+
+.submit2{
+	
+	background-color: red;
+	color:white;
+	width:150px;
+	height:40px;
+	border:0;
+	font-size:medium;
+	
+}

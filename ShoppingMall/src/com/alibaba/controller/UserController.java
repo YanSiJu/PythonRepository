@@ -43,9 +43,12 @@ public class UserController {
 	private ShoppingTrolleyMapper trolleyMapper;
 
 	@RequestMapping("register")
-	public String register(@RequestParam("address") String address, @RequestParam("userName") String userName,
-			@RequestParam("password") String password, @RequestParam("tel") String tel, @RequestParam("id") int id,
-			@RequestParam("name") String name, HttpServletRequest request) {
+	public String register(@RequestParam(value = "address", required = false) String address,
+			@RequestParam(value = "userName", required = false) String userName,
+			@RequestParam(value = "password", required = false) String password,
+			@RequestParam(value = "tel", required = false) String tel,
+			@RequestParam(value = "name", required = false) String name, HttpServletRequest request) {
+		int id = 0;
 		User user = new User(name, address, userName, password, tel, id);
 		service.register(user);
 		request.setAttribute("userName", userName);
@@ -100,21 +103,21 @@ public class UserController {
 	}
 
 	@RequestMapping("login")
-	public String login(@RequestParam("userName") String name, @RequestParam("password") String pwd,
-			HttpServletRequest request) {
+	public String login(@RequestParam(value = "userName", required = false) String name,
+			@RequestParam(value = "password", required = false) String pwd, HttpServletRequest request) {
 
 		User user = service.login(name, pwd);
 		if (user != null) {
 			HttpSession session = request.getSession();
 			// 根据userId查询出购物车
 			List<ShoppingTrolley> trolley = trolleyMapper.queryShoppingTrolley(user.getId());
-			
 
-//			System.out.println("\n\n\n----->查询出的购物车!!" + trolley + "\n\n\n");
+			// System.out.println("\n\n\n----->查询出的购物车!!" + trolley + "\n\n\n");
 			if (trolley != null && trolley.size() > 0) {
 				// 将购物车id保存在session里
 				session.setAttribute("shoppingtrolleyId", trolley.get(0).getId());
-//				System.out.print("\n\n\nLogining...  购物车id:" + session.getAttribute("shoppingtrolleyId")+"\n\n");
+				// System.out.print("\n\n\nLogining... 购物车id:" +
+				// session.getAttribute("shoppingtrolleyId")+"\n\n");
 			}
 			// 保存用户信息
 			session.setAttribute("user", user);
@@ -127,13 +130,13 @@ public class UserController {
 			List<GoodsImg> img = newInfo.getImg();
 			prices = newInfo.getPrices();
 			goods = newInfo.getG();
-//			PrintInfo(goods, img, prices);
+			// PrintInfo(goods, img, prices);
 
 			session.setAttribute("prices", prices);
 			session.setAttribute("img", img);
 			session.setAttribute("goods", goods);
-			
-//			System.out.println("----->登录成功!!" + trolley.get(0).getId() + "\n\n\n");
+
+			// System.out.println("----->登录成功!!" + trolley.get(0).getId() + "\n\n\n");
 			return "goods";
 		}
 		request.setAttribute("errorMsg", "帐号或密码错误，请重新输入");

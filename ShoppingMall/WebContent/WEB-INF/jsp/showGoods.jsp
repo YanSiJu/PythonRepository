@@ -121,6 +121,7 @@
 					alert(m);
 				}else{
 					$(".commentTable").prepend(n);
+					$("#commentContent").val("");
 				}
 				console.log(response);
 			},

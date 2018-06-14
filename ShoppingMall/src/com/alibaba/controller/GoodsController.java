@@ -96,7 +96,7 @@ public class GoodsController {
 	}
 
 	@RequestMapping("goodsDetail")
-	public String goodsDetail(@RequestParam("goodsId") int id, HttpServletRequest request,
+	public String goodsDetail(@RequestParam(value = "goodsId", required = false) int id, HttpServletRequest request,
 			HttpServletResponse response) {
 		service.getGoodsDetail(id);
 		HttpSession session = request.getSession();
@@ -150,7 +150,8 @@ public class GoodsController {
 	}
 
 	@RequestMapping("queryGoods")
-	public String queryGoods(HttpServletRequest request, @RequestParam("param") String param) {
+	public String queryGoods(HttpServletRequest request,
+			@RequestParam(value = "param", required = false) String param) {
 		SortedGoodsInfo info = service.fuzzyQueryGoods(param);
 		HttpSession session = request.getSession();
 		// List list = new ArrayList(new HashSet());
