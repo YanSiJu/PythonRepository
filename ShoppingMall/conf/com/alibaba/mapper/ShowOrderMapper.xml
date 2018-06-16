@@ -3,45 +3,51 @@
 <!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper  namespace="com.alibaba.mapper.ShowOrderMapper">
 
-  <!-- int getUserIdByUserName(@Param("userName")String userName); -->
-  <select id="selectUserId" resultType="java.lang.Integer">
+  <!-- Integer getUserIdByUserName(@Param("userName")String userName,int id); -->
+  <select id="getUserIdByUserName" resultType="java.lang.Integer">
   	select id from user where userName = #{userName}
   </select>
   
   <!-- List<Order> getOrderInfo(@Param("userId")int userId); -->
-	<select id="selectOrderInfo" resultType="com.alibaba.entity.Order">
+	<select id="getOrderInfo" resultType="com.alibaba.entity.Order">
 		select orderId,time,address,name,amount,userId from `order`
 		where userId = #{userId}
 	</select>
   
   
   <!-- GoodsInOrder getGoodsInOrderInfoByOrderId(@Param("orderId")int orderId); -->
-  <select id="selectGoodsInOrder" resultType="com.alibaba.entity.GoodsInOrder">
+  <select id="getGoodsInOrderInfoByOrderId" resultType="com.alibaba.entity.GoodsInOrder">
   	select orderId,goodsId,quantity,amount,batteryCapacity,frontFacingCamera,rearCamera,type from `goodsinorder`
 		where orderId = #{orderId}
   </select>
   <!-- String getGoodsNameByGoodsId(@Param("id")int goodsId); -->
-  <select id="selectGoodsName" resultType="java.lang.String">
+  <select id="getGoodsNameByGoodsId" resultType="java.lang.String">
   	select name from `goods`
   		where id = #{goodsId}
   </select>
   
    <!-- Double getPriceByIdAndType(int goodsId,String type); -->
-  <select id="selectGoodsPrice" resultType="com.alibaba.entity.GoodsPrice">
+  <select id="getPriceByIdAndType" resultType="com.alibaba.entity.GoodsPrice">
   	select * from `goodsprice`
   		where goodsId = #{goodsId} and type = #{type}
   </select>
   
    <!-- GoodsImg getGoodsImg(int goodsId); -->
-  <select id="selectGoodsImg" resultType="com.alibaba.entity.GoodsImg">
+  <select id="getGoodsImg" resultType="com.alibaba.entity.GoodsImg">
   	select * from `goodsimg`
   		where goodsId = #{goodsId}
   </select>
   
    <!-- String getComment(@Param("userId")int userId,@Param("goodsId")int goodsId); -->
-  <select id="selectComment" resultType="java.lang.String">
+  <select id="getComment" resultType="java.lang.String">
   	select comment from `comment`
   		where userId = #{userId} and goodsId = #{goodsId}
   </select>
   
-</mapper>
+  <!--List<Goods> getGoodsInfo(); -->
+  <select id="getGoodsInfo" resultType="com.alibaba.entity.Goods">
+  	select * from `goods`
+  </select>
+  
+  
+</mapper> 

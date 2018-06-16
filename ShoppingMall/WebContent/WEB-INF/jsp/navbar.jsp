@@ -10,14 +10,14 @@
 <body>
 	<table class="table">
 			<tr>
-				<td class="first">&nbsp;&nbsp;<img src="picture\首页图标.png"
+				<td class="first">&nbsp;&nbsp;<img src="img/首页图标.png"
 					class="indexSrc"><a href="index.jsp"
 					style="text-decoration: none;">&nbsp;&nbsp;华为首页</a></td>
-				<td class="second">&nbsp;&nbsp;<img src="picture\位置图标.png"
+				<td class="second">&nbsp;&nbsp;<img src="img/位置图标.png"
 					class="addressSrc">&nbsp;&nbsp;长沙
 				</td>
 				
-				<td class="third"><a href="OrderServlet" style="text-decoration:none;">我的订单</a></td>
+				<td class="third"><a href="showOrder/getOrderInfo" style="text-decoration:none;">我的订单</a></td>
 				
 				
 				<td class="forth">

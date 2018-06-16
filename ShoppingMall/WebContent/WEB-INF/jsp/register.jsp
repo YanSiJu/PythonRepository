@@ -147,6 +147,7 @@ h4 {
 			<script>
 				var submitBtn = document.getElementById("regist");
 				submitBtn.onclick = function(event) {
+					console.log(event)
 					var flag = 1;
 					if ($("#password").val() == "") {
 						$("#password_error").html("&emsp;&emsp;请输入密码")

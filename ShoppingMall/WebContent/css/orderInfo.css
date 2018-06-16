@@ -1,11 +1,11 @@
 @CHARSET "UTF-8";
 
-@CHARSET "UTF-8";
 
 .content {
 	font-family: sans-serif;
 	width: 1000px;
 	height: 800px;
+	background-color:white;
 }
 
 .indexSrc {

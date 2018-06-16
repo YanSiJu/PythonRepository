@@ -13,6 +13,7 @@ import com.alibaba.entity.GoodsImg;
 import com.alibaba.entity.GoodsInOrder;
 import com.alibaba.entity.GoodsPrice;
 import com.alibaba.entity.Order;
+import com.alibaba.entity.User;
 import com.alibaba.service.impl.ShowOrderServiceImpl;
 
 @Controller
@@ -23,9 +24,11 @@ public class ShowOrderController {
 	private ShowOrderServiceImpl service;
 
 	@RequestMapping("getOrderInfo")
-	public String getOrderInfo(HttpServletRequest request,String userName) {
+	public String getOrderInfo(HttpServletRequest request) {
 		//根据用户名获取用户ID
-		Integer userId = service.getUserIdByUserName(userName);
+		Integer userId = service.getUserIdByUserName(((User)request.getSession().getAttribute("user")).getUserName());
+		
+		
 		//获取该用户的所有订单信息(订单号，交易时间，姓名，数量)
 		List<Order> orderInfo = service.getOrderInfo(userId);
 		
@@ -61,7 +64,7 @@ public class ShowOrderController {
 		
 		List<GoodsPrice> priceList = new ArrayList<GoodsPrice>();
 		List<String> goodsNameList = new ArrayList<String>();
-		List<GoodsImg> imgList = new ArrayList<GoodsImg>();
+		List<List<GoodsImg>> imgList = new ArrayList<List<GoodsImg>>();
 		List<String> commentList = new ArrayList<String>();
 		if(goodsIdList != null && goodsIdList.size() > 0){
 			

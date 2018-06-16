@@ -48,7 +48,7 @@
 		<table class="lastTable">
 			<tr>
 				<td class="td1"><img src="img/华为荣耀10幻影蓝正面.png" class="blue"></td>
-				<td class="td2">荣耀10 全面屏AI摄影手机 ${type } 游戏手机 幻影蓝全网通 移动联通电信4G
+				<td class="td2">${name} 荣耀10全面屏AI摄影手机 ${type } 游戏手机 ${color}全网通 移动联通电信4G
 					${capacity }<br> goodsId:${goodsId}
 					<p>颜色：${color } 配置：${type } / 数量：${number }</p>
 				</td>
